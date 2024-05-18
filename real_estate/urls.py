@@ -30,6 +30,8 @@ urlpatterns = [
     path("propertylist/", views.propertylist, name="propertylist"),
     path("propertyagent/", views.propertyagent, name="propertyagent"),
     path("testimonial/", views.testimonial, name="testimonial"),
+    path("404/", views.custom_404, name="404"),
+    path("login/", views.login, name="login"),
     path("__reload__/", include("django_browser_reload.urls")),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
