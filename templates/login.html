@@ -90,19 +90,32 @@
                     <i class="bi bi-person-circle display-1 text-white mb-4 position-absolute start-50 translate-middle"></i>
                     <h1 class="text-center mb-5 text-white" style="margin-top: 50px;">Login</h1>
 
-            <form method="post" enctype="multipart/form-data">
+            <form method="post" enctype="multipart/form-data" action="{% url 'login' %}">
                 {% csrf_token %}
                 <div class="form-floating mb-3">
-                    <input type="text" class="form-control" name="username" id="username" placeholder="Username/email" />
-                    <label for="username">Username / Email</label>
+                    <input type="hidden" class="form-control" name="csrfmiddlewaretoken" id="csrfmiddlewaretoken" placeholder="" value="5Dw9FGez5uWYUnbJj15BaydtnIliXNmlSxevbxm6yEXfUxfSfiJLSclGQt0Sp3Nv"/>
                 </div>
                 <div class="form-floating mb-3">
-                    <input type="password" class="form-control" name="password" id="password" placeholder="Password" />
-                    <label for="password">Password</label>
+                    <input type="email" class="form-control" name="login" id="id_login" placeholder="Email address" autocomplete="email" maxlength="320" required=""/>
+                    <label for="id_login">Username / Email</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="password" class="form-control" name="password" id="id_password" placeholder="Password" autocomplete="current-password" required="" aria-describedby="id_password_helptext"/>
+                    <label for="id_password">Password</label>
+                </div>
+                <div>
+                    <span class="helptext" id="id_password_helptext">
+                        <a href="/accounts/password/reset/">Forgot Password?</a>
+                    </span>
+                </div>
+                <div>
+                    <!-- remeber me checkbox -->
+                    <label for="id_remember">Remember Me</label>
+                    <input type="checkbox" name="remember" id="id_remember"/>
                 </div>
                 <div class="text-center">
                     <button type="submit" class="btn btn-lg btn-primary w-100 mb-3">Login</button>
-                    <a href="" class="btn btn-lg btn-light w-100 mb-3">Register</a>
+                    <a href="/accounts/signup/" class="btn btn-lg btn-light w-100 mb-3">Register</a>
                 </div>
                 </div>
             </div>

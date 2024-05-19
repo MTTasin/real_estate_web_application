@@ -31,8 +31,10 @@ urlpatterns = [
     path("propertyagent/", views.propertyagent, name="propertyagent"),
     path("testimonial/", views.testimonial, name="testimonial"),
     path("404/", views.custom_404, name="404"),
-    path("login/", views.login, name="login"),
     path("__reload__/", include("django_browser_reload.urls")),
+    path("accounts/", include("allauth.urls")),
+    path("accounts/profile/", views.profile, name="profile",),
+    path("accounts/login/", views.login, name="login",)
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 handler404 = 'main.views.custom_404'

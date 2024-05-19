@@ -28,3 +28,6 @@ def custom_404(request, exception=None):
 
 def login(request):
     return render(request, 'login.html')
+
+def profile(request):
+    return render(request, 'profile.html')
